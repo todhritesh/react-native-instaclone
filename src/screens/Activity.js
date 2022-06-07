@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { VStack } from 'native-base'
 
-const Chat = () => {
+const Activity = () => {
   return (
     <View style={styles.container}>
       
