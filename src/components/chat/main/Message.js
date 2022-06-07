@@ -40,7 +40,9 @@ function SingleChat ({name,dp,id,active,seen}) {
           {!seen &&  <Entypo name='dot-single' color="#0095F6" size={40} />}
         </HStack>
       </Box>
-      <Feather name='camera' size={25} color="white" />
+      <TouchableOpacity  activeOpacity={.8}>
+        <Feather name='camera' size={25} color="white" />
+      </TouchableOpacity>
     </HStack>
     </TouchableOpacity>
   )

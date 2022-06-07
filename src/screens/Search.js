@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { VStack } from 'native-base'
+import Header from '../components/search/Header';
+import ImageList from '../components/search/ImageList';
+
 
 const Search = () => {
   return (
-    <View style={styles.container}>
-      
-    </View>
+    <VStack style={styles.container}>
+      <Header/>
+      <ImageList/>
+    </VStack>
   )
 }
 

@@ -5,7 +5,7 @@ import BottomTabNavigator from './BottomTabNavigator'
 const TopTab = createMaterialTopTabNavigator()
 const TopTabNavigator = () => {
   return (
-    <TopTab.Navigator initialRouteName='chat'tabBar={()=>null} >
+    <TopTab.Navigator initialRouteName='bottomTabNavigator'tabBar={()=>null} >
         <TopTab.Screen  component={BottomTabNavigator} name="bottomTabNavigator"/>
         <TopTab.Screen  component={Chat} name="chat"/>
     </TopTab.Navigator>
