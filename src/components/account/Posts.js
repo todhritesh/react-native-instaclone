@@ -1,4 +1,4 @@
-import { View, Text,Image ,FlatList} from 'react-native'
+import { View, Text,Image ,FlatList,useWindowDimensions} from 'react-native'
 import React from 'react'
 import { HStack,Box } from 'native-base'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import posts from '../../data/posts'
 const Posts = () => {
+    const {height,width} = useWindowDimensions()
   return (
     <>
         <HStack marginTop={5} justifyContent="space-evenly">
@@ -22,15 +23,14 @@ const Posts = () => {
                 <Ionicons name='person-circle-sharp' color={"#888888"} size={26} />
             </TouchableOpacity>
         </HStack>
-        <Box flexDirection={"row"} flexWrap="wrap" padding={0} marginHorizontal={-10}>
+        <Box width={width} marginHorizontal={-10}>
             <FlatList
-            data = {posts}
+            data={posts}
             renderItem={({item})=>(
-                <TouchableOpacity>
-                    <Image source={{uri:item.post.post + item.post.id + 20}} style={{height:135,marginHorizontal:1,marginVertical:1}}/>
-                </TouchableOpacity>
+                <Box p={.5} width={"33%"}>
+                    <Image  source={{uri:item.post + item.post.id + 20}} style={{height:135,width:"100%",marginHorizontal:1,marginVertical:1}}/>
+                </Box>
             )}
-            keyExtractor={({index})=>index.toString()}
             numColumns={3}
             />
         </Box>

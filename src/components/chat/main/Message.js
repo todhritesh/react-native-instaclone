@@ -4,6 +4,7 @@ import { Avatar, HStack, VStack , Box } from 'native-base'
 import Feather from "react-native-vector-icons/Feather"
 import Entypo from "react-native-vector-icons/Entypo"
 import chats from "../../../data/chats";
+import { useNavigation } from '@react-navigation/native'
 
 const Message = () => {
   return (
@@ -24,8 +25,9 @@ const Message = () => {
 export default Message
 
 function SingleChat ({name,dp,id,active,seen}) {
+  const {navigate} = useNavigation()
   return (
-    <TouchableOpacity activeOpacity={.8}>
+    <TouchableOpacity activeOpacity={.8} onPress={()=>navigate("viewMessaging")} >
       <HStack marginVertical={5} justifyContent={"space-between"} height={60} alignItems="center">
       <Avatar size={"md"} source={{uri:dp+id+60}} >
         {active && <Avatar.Badge></Avatar.Badge>}

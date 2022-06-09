@@ -1,18 +1,27 @@
 import { Image } from 'react-native'
 import React from 'react'
-import { Box, HStack, Input, Text } from 'native-base'
+import { Box, HStack, Input, Icon,Avatar } from 'native-base'
 import Entypo from "react-native-vector-icons/Entypo"
+import Feather from "react-native-vector-icons/Feather"
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import { TouchableOpacity } from 'react-native'
+
+const Righticons = () => {
+  return (
+    <HStack space={4} paddingHorizontal={5} >
+      <Feather name='mic' size={20} color="white" />
+      <FontAwesome5 name={"photo-video"} size={18} color="white" />
+      <MaterialCommunityIcons name={"sticker-emoji"} size={20} color="white" />
+    </HStack>
+  )
+}
+
 const CustomInput = () => {
   return (
    <HStack alignItems="center" height={60} paddingHorizontal={13} backgroundColor="black" justifyContent="space-between">
-       <Box width={"87%"} >
-            <Input borderRadius={10} focusOutlineColor="black" height={9} px={3} color="white" placeholder="Search..." width="100%" />
-       </Box>
-       <Box>
-            <TouchableOpacity  activeOpacity={.8} >
-                <Entypo name='location' size={23} color="white" />
-            </TouchableOpacity>
+       <Box width={"100%"} >
+            <Input InputRightElement={<Icon as={<Righticons />} />} InputLeftElement={<Icon as={<Avatar style={{marginHorizontal:8}} size={"sm"} bg="blue.600" ><Entypo key={1} name="camera" size={17} color="white" /></Avatar>} />} borderRadius={18} focusOutlineColor="black" height={10} px={3} color="white" placeholder="Search..." width="100%" />
        </Box>
    </HStack>
   )

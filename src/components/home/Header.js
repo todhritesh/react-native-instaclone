@@ -5,7 +5,9 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 import Feather from "react-native-vector-icons/Feather"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import { TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 const Header = () => {
+    const {navigate} = useNavigation()
   return (
    <HStack alignItems="center" height={60} paddingHorizontal={13} backgroundColor="black" justifyContent="space-between">
        <Box>
@@ -21,7 +23,7 @@ const Header = () => {
                <TouchableOpacity  activeOpacity={.8} >
                     <Feather name='plus-square' size={25} color="white" />
                </TouchableOpacity>
-               <TouchableOpacity style={{position:'relative'}} activeOpacity={.8} >
+               <TouchableOpacity style={{position:'relative'}} activeOpacity={.8} onPress={()=>navigate("chat")} >
                     <AntDesign name='message1' size={25} color="white" />
                     <Text style={{position:'absolute',fontWeight:"700",color:'white',backgroundColor:'red',borderRadius:15,paddingHorizontal:4,paddingVertical:1,top:-14,right:-6}} >23</Text>
                </TouchableOpacity>

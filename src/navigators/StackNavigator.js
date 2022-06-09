@@ -6,7 +6,7 @@ const Stack = createStackNavigator()
 
 const StackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName='viewMessaging' >
+    <Stack.Navigator initialRouteName='topTabNavigation' >
         <Stack.Screen options={{headerShown:false}} name="topTabNavigator" component={TopTabNavigator} /> 
         <Stack.Screen options={{headerShown:false}} name="viewMessaging" component={ViewMessaging} />
     </Stack.Navigator>
