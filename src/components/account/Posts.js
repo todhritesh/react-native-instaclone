@@ -1,4 +1,4 @@
-import { View, Text,Image } from 'react-native'
+import { View, Text,Image ,FlatList} from 'react-native'
 import React from 'react'
 import { HStack,Box } from 'native-base'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -23,11 +23,16 @@ const Posts = () => {
             </TouchableOpacity>
         </HStack>
         <Box flexDirection={"row"} flexWrap="wrap" padding={0} marginHorizontal={-10}>
-            {posts.map((post) => (
+            <FlatList
+            data = {posts}
+            renderItem={({item})=>(
                 <TouchableOpacity>
-                    <Image source={{uri:post.post + post.id + 20}} style={{width:135,height:135,marginHorizontal:1,marginVertical:1}}/>
+                    <Image source={{uri:item.post.post + item.post.id + 20}} style={{height:135,marginHorizontal:1,marginVertical:1}}/>
                 </TouchableOpacity>
-            ))}
+            )}
+            keyExtractor={({index})=>index.toString()}
+            numColumns={3}
+            />
         </Box>
     </>
   )
