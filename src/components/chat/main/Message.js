@@ -35,7 +35,7 @@ function SingleChat ({name,dp,id,active,seen}) {
           <VStack marginLeft={5}>
             <Text style={{fontSize:17,fontWeight:"700",color:"white"}}>{name}</Text>
             {!seen && <Text style={{fontSize:15,fontWeight:"700",color:"white"}}>9+ new messages -8h</Text>}
-            {seen && <Text style={{fontSize:14,fontWeight:"700",color:"lightgrey"}}>How are you</Text>}
+            {seen && <Text style={{fontSize:14,fontWeight:"700",color:"grey"}}>How are you</Text>}
           </VStack>
           {!seen &&  <Entypo name='dot-single' color="#0095F6" size={40} />}
         </HStack>

@@ -18,7 +18,7 @@ const Activity = () => {
           <PostLiked/>
         </VStack>
         <VStack space={3}>
-          <Text style={{color:'white',fontWeight:'700',fontSize:17}} >This MOnth</Text>
+          <Text style={{color:'white',fontWeight:'700',fontSize:17}} >This Month</Text>
           <PostLiked/>
           <RequestItem/>
           <PostLiked/>
