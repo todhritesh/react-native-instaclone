@@ -12,7 +12,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 const BottomTab = createBottomTabNavigator()
 const BottomTabNavigator = () => {
   return (
-    <BottomTab.Navigator initialRouteName='account' screenOptions={{tabBarStyle:{backgroundColor:'black'}}}>
+    <BottomTab.Navigator initialRouteName='home' screenOptions={{tabBarStyle:{backgroundColor:'black'}}}>
         <BottomTab.Screen options={{headerShown:false,tabBarShowLabel:false,tabBarIcon:()=>TabBarHomeIcon(27,"white")}}  name="home" component={Home} />
         <BottomTab.Screen options={{headerShown:false,tabBarShowLabel:false,tabBarIcon:()=>TabBarSearchIcon(25,"white")}} name="search" component={Search} />
         <BottomTab.Screen options={{headerShown:false,tabBarShowLabel:false,tabBarIcon:()=>TabBarReelsIcon(27,"white")}} name="reels" component={Reels} />

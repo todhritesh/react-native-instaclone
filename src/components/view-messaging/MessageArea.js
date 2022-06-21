@@ -9,6 +9,7 @@ const MessageArea = () => {
   return (
     <View style={{flex:1,}} >
       <FlatList 
+        showsVerticalScrollIndicator={false}
            inverted
            data={[...data].reverse()}
            renderItem={({item})=><MessageItem uid={item.uid} msg={item.msg}/>}

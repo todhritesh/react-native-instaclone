@@ -7,10 +7,10 @@ import { PostLiked, RequestItem, Requests } from '../components/activity/All'
 const Activity = () => {
   return (
     <View style={styles.container}>
+      <Header/>
           <FlatList
       ListHeaderComponent={()=>(
       <VStack space={5} paddingVertical={5} paddingHorizontal={10} style={styles.container}>
-        <Header/>
         <Requests/>
         <VStack space={3}>
           <Text style={{color:'white',fontWeight:'700',fontSize:17}} >This Week</Text>
@@ -21,6 +21,15 @@ const Activity = () => {
           <Text style={{color:'white',fontWeight:'700',fontSize:17}} >This Month</Text>
           <PostLiked/>
           <RequestItem/>
+          <PostLiked/>
+          <PostLiked/>
+          <PostLiked/>
+          <RequestItem/>
+          <PostLiked/>
+        </VStack>
+        <VStack space={3}>
+          <Text style={{color:'white',fontWeight:'700',fontSize:17}} >Earlier</Text>
+          <PostLiked/>
           <PostLiked/>
           <PostLiked/>
           <PostLiked/>

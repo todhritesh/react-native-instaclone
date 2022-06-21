@@ -5,7 +5,7 @@ import { Box } from 'native-base'
 const Header = () => {
   return (
     <Box>
-        <Text style={{color:'white',fontWeight:'700',fontSize:23}} >Activity</Text>
+        <Text style={{color:'white',fontWeight:'700',paddingLeft:10,paddingVertical:10,fontSize:23}} >Activity</Text>
     </Box>
   )
 }

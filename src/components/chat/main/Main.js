@@ -7,7 +7,7 @@ import Message from './Message'
 
 const Main = () => {
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false} >
       <VStack>
           <Search/>
           <Active/>
