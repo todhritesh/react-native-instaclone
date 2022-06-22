@@ -6,21 +6,12 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 const TopTab = createMaterialTopTabNavigator()
 const TopTabNavigator = () => {
   const[page,setPage] = useState(0)
-//   useEffect(() => {
-//     routename && setPage(1)
-//     if(routename===1){
-//       setPage(0)
-//     }else{
-
-//     }
-// }, [routename])
   return (
     <TopTab.Navigator initialRouteName='bottomTabNavigator'tabBar={()=>null} >
         <TopTab.Screen
         options={({route}) => ({
          tabBarStyle: ((route) => {
            const routename = getFocusedRouteNameFromRoute(route)
-          console.log(routename)
             if (routename === 'home' || routename === undefined) {
                 useEffect(() => {
                     setPage(1)

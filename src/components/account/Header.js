@@ -1,14 +1,17 @@
 import { View, Text,TouchableOpacity } from 'react-native'
-import React from 'react'
-import { HStack,Box } from 'native-base'
-import Ionicons from "react-native-vector-icons/Ionicons"
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Entypo from "react-native-vector-icons/Entypo"
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
-import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
+import React,{useContext} from 'react'
+import { HStack,Box, Button } from 'native-base'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import auth from '@react-native-firebase/auth'
 import { useNavigation } from '@react-navigation/native'
+import { UserContext } from '../../../App'
 
 const Header = () => {
+    const {userAuth,setUserAuth} = useContext(UserContext)
+    const {navigate} = useNavigation()
+    function handleSingout(){
+        auth().signOut().then(()=>{setUserAuth(null)}).catch(err=>console.log(err))
+    }
   return (
     <HStack height={50} justifyContent="space-between">
         <Box>
@@ -21,17 +24,7 @@ const Header = () => {
         </Box>
         <Box>
             <HStack  space={4} alignItems="center">
-                <TouchableOpacity activeOpacity={.8} style={{marginTop:4}}>
-                    <FontAwesome name='plus-square-o' size={28} color="white"/>
-                </TouchableOpacity>
-
-                <TouchableOpacity activeOpacity={.8}>
-                    <SimpleLineIcons name='chart' size={24} color="white"/>
-                </TouchableOpacity>
-
-                <TouchableOpacity activeOpacity={.8} >
-                    <Ionicons name='menu-sharp' size={35} color="white"/>
-                </TouchableOpacity>
+                <Button onPress={()=>handleSingout()} rightIcon={<MaterialIcons name="logout" color="white" size={20} />} colorScheme={'danger'} size="xs" >Signout</Button>
             </HStack>
         </Box>
     </HStack>

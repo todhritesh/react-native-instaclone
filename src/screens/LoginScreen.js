@@ -1,16 +1,40 @@
 import { Image, StyleSheet, Text, useWindowDimensions, View ,TouchableOpacity} from 'react-native'
-import React from 'react'
+import React,{useContext} from 'react'
 import { Button, HStack, Input, VStack } from 'native-base'
 import Entypo from 'react-native-vector-icons/Entypo'
 import {Formik} from 'formik'
 import * as Yup from 'yup'
 import ShowErrorMessage from '../components/ShowErrorMessage'
 import { useNavigation } from '@react-navigation/native'
+import auth from '@react-native-firebase/auth'
+import { UserContext } from '../../App'
 
 const LoginScreen = () => {
+    const {userAuth,setUserAuth} = useContext(UserContext)
     const {navigate} = useNavigation()
+
+    const handleLogin = (email,password) => {
+        auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((user) => {
+            console.log('user logged in');
+            setUserAuth(user)
+        })
+        .catch(error => {
+            console.log(error)
+            if (error.code === 'auth/wrong-password') {
+            console.log('Wrong password');
+            }
+
+            if (error.code === 'auth/invalid-email') {
+            console.log('That email address is invalid!');
+            }
+        });
+    }
+
     const onSubmit = (values) => {
         console.log(values)
+        handleLogin(values.email,values.password)
     }
     const validationSchema = Yup.object().shape({
         email:Yup.string().email("must be a valid email").required("email is required"),

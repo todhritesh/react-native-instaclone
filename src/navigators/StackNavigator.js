@@ -7,11 +7,9 @@ import LoginScreen from '../screens/LoginScreen'
 import SignUpScreen from '../screens/SignupScreen'
 const Stack = createStackNavigator()
 
-const StackNavigator = () => {
+const WithAuthStackNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName='signupScreen' >
-        <Stack.Screen options={{headerShown:false}} name="signupScreen" component={SignUpScreen} />
-        <Stack.Screen options={{headerShown:false}} name="loginScreen" component={LoginScreen} />
+    <Stack.Navigator initialRouteName='topTabNavigator' >
         <Stack.Screen options={{headerShown:false}} name="createPost" component={CreatePost} />
         <Stack.Screen options={{headerShown:false}} name="topTabNavigator" component={TopTabNavigator} /> 
         <Stack.Screen options={{headerShown:false}} name="viewMessaging" component={ViewMessaging} />
@@ -19,4 +17,13 @@ const StackNavigator = () => {
   )
 }
 
-export default StackNavigator
+const WithoutAuthStackNavigator = () => {
+  return (
+    <Stack.Navigator initialRouteName='signupScreen' >
+        <Stack.Screen options={{headerShown:false}} name="signupScreen" component={SignUpScreen} />
+        <Stack.Screen options={{headerShown:false}} name="loginScreen" component={LoginScreen} />
+    </Stack.Navigator>
+  )
+}
+
+export { WithAuthStackNavigator,WithoutAuthStackNavigator}
